@@ -22,7 +22,7 @@ public class OrderController {
     public ResponseEntity<?> placeOrder(
             @AuthenticationPrincipal AuthUser currentUser,
             @RequestBody PlaceOrderRequest request) {
-        Long buyerId = Long.parseLong(currentUser.getUserId()); // สมมติว่า userDetails.getUsername() เป็น user id
+        Long buyerId = Long.parseLong(currentUser.getUserId());
         orderService.placeOrder(buyerId, request);
         return ResponseEntity.ok("Order placed successfully");
     }
